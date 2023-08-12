@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/urban-dictionary/static/css/main.dae99a90.css",
+    "main.js": "/urban-dictionary/static/js/main.07e38f40.js",
+    "index.html": "/urban-dictionary/index.html",
+    "main.dae99a90.css.map": "/urban-dictionary/static/css/main.dae99a90.css.map",
+    "main.07e38f40.js.map": "/urban-dictionary/static/js/main.07e38f40.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dae99a90.css",
+    "static/js/main.07e38f40.js"
+  ]
+}
