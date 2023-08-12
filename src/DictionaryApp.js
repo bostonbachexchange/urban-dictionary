@@ -18,7 +18,7 @@ function DictionaryApp() {
       .match(/[a-z]+('[a-z]+)?/g); // Match words with contractions
     const uniqueWords = Array.from(new Set(words)); // Remove duplicate words
     const definitions = [];
-  
+
     for (const word of uniqueWords) {
       try {
         const response = await axios.get(
@@ -32,11 +32,9 @@ function DictionaryApp() {
         console.error('Error fetching definitions:', error);
       }
     }
-  
+
     setDefinitions(definitions);
   };
-  
-  
 
   return (
     <div className="app-container">
@@ -54,18 +52,18 @@ function DictionaryApp() {
       </button>
       <div className="definitions-container">
         {definitions.map((wordData, index) => (
-            <div className="word-definition" key={index}>
+          <div className="word-definition" key={index}>
             <h2 className="word-term">{wordData.term}</h2>
             <ul className="definition-list">
-        {wordData.definitions.map((definition, defIndex) => (
-          <li key={defIndex}>
-            {definition.definition.replace(/\[|\]/g, '')}
-          </li>
+              {wordData.definitions.map((definition, defIndex) => (
+                <li key={defIndex}>
+                  {definition.definition.replace(/\[|\]/g, '')}
+                </li>
+              ))}
+            </ul>
+          </div>
         ))}
-      </ul>
-            </div>
-        ))}
-        </div>
+      </div>
     </div>
   );
 }
