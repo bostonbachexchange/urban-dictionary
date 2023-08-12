@@ -15,7 +15,7 @@ function DictionaryApp() {
     const words = lines
       .join(' ') // Join lines into a single string
       .toLowerCase() // Convert to lowercase
-      .match(/[a-z]+/g); // Filter non-alphabetic characters
+      .match(/[a-z]+('[a-z]+)?/g); // Match words with contractions
     const uniqueWords = Array.from(new Set(words)); // Remove duplicate words
     const definitions = [];
   
@@ -35,6 +35,7 @@ function DictionaryApp() {
   
     setDefinitions(definitions);
   };
+  
   
 
   return (
@@ -56,10 +57,12 @@ function DictionaryApp() {
             <div className="word-definition" key={index}>
             <h2 className="word-term">{wordData.term}</h2>
             <ul className="definition-list">
-                {wordData.definitions.map((definition, defIndex) => (
-                <li key={defIndex}>{definition.definition}</li>
-                ))}
-            </ul>
+        {wordData.definitions.map((definition, defIndex) => (
+          <li key={defIndex}>
+            {definition.definition.replace(/\[|\]/g, '')}
+          </li>
+        ))}
+      </ul>
             </div>
         ))}
         </div>
